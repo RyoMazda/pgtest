@@ -1,0 +1,12 @@
+version: '3'
+services:
+  pg:
+    image: postgres:11-alpine
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_USER=postgres
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      - ./tmp:/tmp
+      - ./sql:/root/sql
+    #   - ./data:/var/lib/postgresql/data
